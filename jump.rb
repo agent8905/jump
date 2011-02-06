@@ -25,8 +25,8 @@ module Jump
   end
   
   def handle_down_motion
-    if @y >= (@game_window.platform.y-36)
-      @y = (@game_window.platform.y-36)
+    if (current_platform = @game_window.find_platform(self))
+      @y = current_platform.top - @icon.height + current_platform.height
       @jumping = false
     else
       @y = @y + 10
